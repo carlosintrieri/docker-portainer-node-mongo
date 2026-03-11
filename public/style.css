@@ -1,0 +1,112 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 2rem;
+}
+
+.container { max-width: 800px; margin: 0 auto; }
+
+h1 { margin-bottom: 1.5rem; color: #7dd3fc; font-size: 1.6rem; }
+
+form {
+  background: #1e293b;
+  padding: 1.2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 1.5rem;
+}
+
+form input {
+  flex: 1;
+  min-width: 160px;
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+}
+
+form input:focus { outline: 2px solid #7dd3fc; }
+
+.btns { display: flex; gap: 0.5rem; width: 100%; }
+
+button {
+  padding: 0.55rem 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background: #0284c7;
+  color: #fff;
+  transition: background 0.2s;
+}
+button:hover  { background: #0369a1; }
+button.del    { background: #dc2626; }
+button.del:hover { background: #b91c1c; }
+#btnCancelar  { background: #475569; }
+.hidden       { display: none; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background: #0f172a;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+}
+
+td {
+  padding: 0.7rem 1rem;
+  border-top: 1px solid #334155;
+  font-size: 0.95rem;
+}
+
+tr:hover td { background: #253045; }
+
+td button {
+  padding: 0.3rem 0.65rem;
+  font-size: 0.82rem;
+  margin-right: 0.3rem;
+}
+
+/* Modal */
+#modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+#modal:not(.hidden) {
+  display: flex;
+}
+
+.modal-box {
+  background: #1e293b;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  min-width: 280px;
+}
+
+.modal-box p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}

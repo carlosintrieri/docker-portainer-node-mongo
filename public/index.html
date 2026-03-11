@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRUD Usuários</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+
+  <h1>👤 Gerenciar Usuários</h1>
+
+  <form id="form">
+    <input type="hidden"  id="editId" />
+    <input type="text"   id="nome"   placeholder="Nome"  required />
+    <input type="email"  id="email"  placeholder="Email" required />
+    <input type="number" id="idade"  placeholder="Idade" min="0" required />
+    <div class="btns">
+      <button type="submit" id="btnSalvar">💾 Salvar</button>
+      <button type="button" id="btnCancelar" class="hidden">✖ Cancelar</button>
+    </div>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th><th>Email</th><th>Idade</th><th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+</div>
+
+<!-- Modal de confirmação -->
+<div id="modal" class="hidden">
+  <div class="modal-box">
+    <p>Deseja deletar este usuário?</p>
+    <div class="btns">
+      <button id="modalConfirmar">✔ Confirmar</button>
+      <button id="modalCancelar" class="del">✖ Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const API = "/usuarios"
+  let editandoId = null
+  let deletandoId = null
+
+  const el = id => document.getElementById(id)
+
+  async function api(url, method = "GET", body) {
+    const opts = { method, headers: { "Content-Type": "application/json" } }
+    if (body) opts.body = JSON.stringify(body)
+    const res = await fetch(url, opts)
+    return res.json()
+  }
+
+  async function carregar() {
+    const usuarios = await api(API)
+    el("tbody").innerHTML = usuarios.map(u => `
+      <tr>
+        <td>${u.nome}</td>
+        <td>${u.email}</td>
+        <td>${u.idade}</td>
+        <td>
+          <button onclick="editar('${u._id}','${u.nome}','${u.email}',${u.idade})">✏️ Editar</button>
+          <button class="del" onclick="confirmarDeletar('${u._id}')">🗑️ Deletar</button>
+        </td>
+      </tr>`).join("")
+  }
+
+  el("form").addEventListener("submit", async e => {
+    e.preventDefault()
+    const body = {
+      nome:  el("nome").value,
+      email: el("email").value,
+      idade: Number(el("idade").value)
+    }
+    if (editandoId) {
+      await api(`${API}/${editandoId}`, "PUT", body)
+      cancelar()
+    } else {
+      await api(API, "POST", body)
+    }
+    e.target.reset()
+    carregar()
+  })
+
+  function editar(id, nome, email, idade) {
+    editandoId = id
+    el("nome").value  = nome
+    el("email").value = email
+    el("idade").value = idade
+    el("btnSalvar").textContent = "✅ Atualizar"
+    el("btnCancelar").classList.remove("hidden")
+  }
+
+  function cancelar() {
+    editandoId = null
+    el("form").reset()
+    el("btnSalvar").textContent = "💾 Salvar"
+    el("btnCancelar").classList.add("hidden")
+  }
+
+  function confirmarDeletar(id) {
+    deletandoId = id
+    el("modal").classList.remove("hidden")
+  }
+
+  el("modalConfirmar").addEventListener("click", async () => {
+    await api(`${API}/${deletandoId}`, "DELETE")
+    el("modal").classList.add("hidden")
+    deletandoId = null
+    carregar()
+  })
+
+  el("modalCancelar").addEventListener("click", () => {
+    el("modal").classList.add("hidden")
+    deletandoId = null
+  })
+
+  el("btnCancelar").addEventListener("click", cancelar)
+  carregar()
+</script>
+</body>
+</html>
