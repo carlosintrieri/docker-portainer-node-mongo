@@ -56,7 +56,7 @@ node-mongo-crud/
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/docker-portainer-node-mongo.git
+git clone https://github.com/carlosintrieri/docker-portainer-node-mongo.git
 cd docker-portainer-node-mongo
 ```
 
