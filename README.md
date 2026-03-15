@@ -1,5 +1,7 @@
 # 🚀 docker-portainer-node-mongo
 
+# Um aplicativo CRUD para teste de Portainer com Docker utilizando Node.js e MongoDB.
+
 CRUD completo com **Node.js**, **MongoDB**, **Docker** e **Portainer**.  
 Projeto desenvolvido como atividade prática de administração de servidores Linux com containers Docker.
 
