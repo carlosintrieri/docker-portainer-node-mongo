@@ -1,9 +1,16 @@
+<div align="center">
+
 # 🚀 docker-portainer-node-mongo
 
-# Um aplicativo CRUD para teste de Portainer com Docker utilizando Node.js e MongoDB.
+### Um aplicativo CRUD para teste de Portainer com Docker utilizando Node.js e MongoDB.
 
-CRUD completo com **Node.js**, **MongoDB**, **Docker** e **Portainer**.  
-Projeto desenvolvido como atividade prática de administração de servidores Linux com containers Docker.
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Portainer](https://img.shields.io/badge/Portainer-13BEF9?style=for-the-badge&logo=portainer&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+
+</div>
 
 ---
 
@@ -30,7 +37,6 @@ Aplicação web fullstack para gerenciamento de usuários, com operações de **
 ---
 
 ## 📁 Estrutura do Projeto
-
 ```
 node-mongo-crud/
 ├── public/
@@ -47,29 +53,26 @@ node-mongo-crud/
 
 ## ⚙️ Pré-requisitos
 
-- [Docker](https://docs.docker.com/get-docker/) instalado
-- [Docker Compose](https://docs.docker.com/compose/) instalado
-- [Portainer](https://www.portainer.io/) (opcional, para gerenciamento visual)
+- 🐳 [Docker](https://docs.docker.com/get-docker/) instalado
+- 🔧 [Docker Compose](https://docs.docker.com/compose/) instalado
+- 📊 [Portainer](https://www.portainer.io/) (opcional, para gerenciamento visual)
 
 ---
 
 ## 🚀 Como Rodar o Projeto
 
 ### 1. Clone o repositório
-
 ```bash
 git clone https://github.com/carlosintrieri/docker-portainer-node-mongo.git
 cd docker-portainer-node-mongo
 ```
 
 ### 2. Suba os containers
-
 ```bash
 docker compose up -d --build
 ```
 
 ### 3. Acesse no navegador
-
 ```
 http://localhost:3000
 ```
@@ -85,7 +88,7 @@ Após rodar o `docker compose up`, dois containers serão criados:
 | `node-crud` | node:20-alpine | 3000 |
 | `mongodb` | mongo:latest | 27017 |
 
-Os dois containers se comunicam pela rede interna `app-network` criada automaticamente pelo Docker Compose.
+> Os dois containers se comunicam pela rede interna `app-network` criada automaticamente pelo Docker Compose.
 
 ---
 
@@ -100,7 +103,6 @@ Os dois containers se comunicam pela rede interna `app-network` criada automatic
 | `DELETE` | `/usuarios/:id` | Remove um usuário |
 
 ### Exemplo de requisição
-
 ```bash
 # Criar usuário
 curl -X POST http://localhost:3000/usuarios \
@@ -116,7 +118,6 @@ curl http://localhost:3000/usuarios
 ## 🗄️ Variáveis de Ambiente
 
 Crie um arquivo `.env` na raiz do projeto:
-
 ```env
 MONGO_URI=mongodb://root:root@mongodb:27017/cruddb?authSource=admin
 PORT=3000
@@ -128,7 +129,6 @@ PORT=3000
 ---
 
 ## 📊 Arquitetura
-
 ```
 Ubuntu (Linux)
 └── Docker
@@ -159,7 +159,6 @@ A interface web permite:
 ---
 
 ## 📦 Comandos Úteis
-
 ```bash
 # Subir os containers em background
 docker compose up -d
@@ -188,10 +187,10 @@ O Portainer permite gerenciar os containers visualmente sem precisar do terminal
 Acesse em: `http://localhost:9000`
 
 No Portainer você pode:
-- Ver status dos containers
-- Acessar logs em tempo real
-- Reiniciar ou parar containers
-- Inspecionar redes e volumes
+- 🟢 Ver status dos containers
+- 📜 Acessar logs em tempo real
+- 🔄 Reiniciar ou parar containers
+- 🔍 Inspecionar redes e volumes
 
 ---
 
@@ -199,11 +198,11 @@ No Portainer você pode:
 
 Este projeto abordou na prática:
 
-- Administração de servidores **Linux (Ubuntu)**
-- Criação e gerenciamento de **containers Docker**
-- Orquestração com **Docker Compose**
-- Gerenciamento visual com **Portainer**
-- Desenvolvimento de **API REST** com Node.js e Express
-- Conexão com banco de dados **MongoDB** via Mongoose
-- **Redes Docker** para comunicação entre containers
-- **Volumes Docker** para persistência de dados
+- 🐧 Administração de servidores **Linux (Ubuntu)**
+- 🐳 Criação e gerenciamento de **containers Docker**
+- 🔧 Orquestração com **Docker Compose**
+- 📊 Gerenciamento visual com **Portainer**
+- 🚀 Desenvolvimento de **API REST** com Node.js e Express
+- 🗄️ Conexão com banco de dados **MongoDB** via Mongoose
+- 🌐 **Redes Docker** para comunicação entre containers
+- 💾 **Volumes Docker** para persistência de dados
