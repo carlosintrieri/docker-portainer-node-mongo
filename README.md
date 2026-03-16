@@ -2,7 +2,9 @@
 
 # 🚀 docker-portainer-node-mongo
 
-### Um aplicativo CRUD para teste de Portainer com Docker utilizando Node.js e MongoDB - Fatec São José dos Campos - Prof° Jessen Vidal 
+### Um aplicativo CRUD para teste de Portainer com Docker utilizando Node.js e MongoDB 
+
+### Fatec São José dos Campos - Prof° Jessen Vidal 
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
